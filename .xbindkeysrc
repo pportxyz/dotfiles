@@ -1,0 +1,38 @@
+###########################
+# xbindkeys configuration #
+###########################
+
+##########
+# VOLUME # 	# Requires PulseAudio
+##########
+
+# Increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+	XF86AudioRaiseVolume
+
+# Decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+	XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	XF86AudioMute
+
+#############
+# BACKLIGHT # 	# Requires acpilight (and user in video group)
+#############
+
+# Increase brightness
+"xbacklight -inc 5"
+	XF86MonBrightnessUp
+
+"xbacklight -dec 5"
+	XF86MonBrightnessDown
+
+##########
+# SEARCH #
+##########
+
+"rofi -show run"
+	XF86Search
+
