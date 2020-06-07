@@ -182,6 +182,7 @@ time-alt = ${self.time}
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
+format-font = 3
 
 label = %date% %time%
 
