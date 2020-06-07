@@ -131,20 +131,12 @@ label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
+card = intel_backlight
 
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = ${colors.primary}
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+format = <label>
+format-underline = ${colors.primary}
+format-font = 3
+label =  %percentage:2%%
 
 [module/cpu]
 type = internal/cpu
