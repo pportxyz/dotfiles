@@ -26,13 +26,28 @@
 "xbacklight -inc 5"
 	XF86MonBrightnessUp
 
+# Decrease brightness
 "xbacklight -dec 5"
 	XF86MonBrightnessDown
 
 ##########
-# SEARCH #
+# SEARCH #	# Requires rofi
 ##########
 
-"rofi -show run"
+"rofi -show drun"
 	XF86Search
+
+##############
+# SCREENSHOT #
+##############
+
+"scrot"
+	Print
+
+##########
+# W10 VM #
+##########
+
+"VBoxManage startvm 'W10'"
+	F7
 
