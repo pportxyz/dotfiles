@@ -1,16 +1,47 @@
 #! /bin/sh
 
+
+## Coloring
+getcolors () {
+	FOREGROUND=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
+	BACKGROUND=$(xrdb -query | grep 'background:'| awk '{print $NF}')
+	BLACK=$(xrdb -query | grep 'color0:'| awk '{print $NF}')
+	RED=$(xrdb -query | grep 'color1:'| awk '{print $NF}')
+	GREEN=$(xrdb -query | grep 'color2:'| awk '{print $NF}')
+	YELLOW=$(xrdb -query | grep 'color3:'| awk '{print $NF}')
+	BLUE=$(xrdb -query | grep 'color4:'| awk '{print $NF}')
+	MAGENTA=$(xrdb -query | grep 'color5:'| awk '{print $NF}')
+	CYAN=$(xrdb -query | grep 'color6:'| awk '{print $NF}')
+	WHITE=$(xrdb -query | grep 'color7:'| awk '{print $NF}')
+}
+
+xrdb ~/.Xresources
+getcolors
+
 bspc monitor -d web II III IV V VI VII VIII IX X
 
-bspc config border_width		5
-bspc config window_gap          	12
+bspc config border_width		4
+bspc config window_gap          	8
 bspc config split_ratio			0.50
 bspc config borderless_monocle		true
 bspc config gapless_monocle		true
 bspc config focus_follows_pointer	true
+bspc config top_padding 0
+bspc config bottom_padding 15
+bspc config left_padding 15
+bspc config right_padding 15
 
+# Remove all rules
+bspc rule -r *:*
 bspc rule -a zathura state=tiled follow=on
 
+# Autostart
+killall -9 sxhkd xsettingsd dunst
 $HOME/.config/polybar/launch.sh
 sxhkd &
 feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-0.jpg' &
+dunst \
+	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
+	-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
+	-cb "$BACKGROUND" -cf "$FOREGROUND" -cfr "$RED" &
+
