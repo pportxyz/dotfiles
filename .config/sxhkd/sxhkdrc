@@ -6,9 +6,17 @@
 super + Return
 	urxvt
 
+# file manager
+super + e
+	urxvt -e ranger
+
+# file manager
+super + f
+	firefox
+
 # program launcher
 super + @space
-	rofi -show run
+	rofi -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
