@@ -272,11 +272,14 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+interval = 0.5
+;thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
+base-temperature = 30
+warn-temperature = 100
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -284,9 +287,11 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
