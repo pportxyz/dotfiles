@@ -26,17 +26,17 @@ secondary = ${xrdb:color4:#e60053}
 alert = ${xrdb:color1:#bd2c40}
 
 [bar/xpsbar]
-width = 100%
-height = 3%
-;offset-x = 5%
-;offset-y = 1%
+width = 99%
+height = 4%
+offset-x = 0.5%
+offset-y = 1%
 radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 4
 line-color = #f00
 
 border-size = 0
@@ -48,24 +48,17 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-
 font-0 = "Source Code Pro:style=Bold:size=10:antialias=true"
-font-1 = "Font Awesome 5 Free:style=Regular:size=12:antialias=true"
-font-2 = "Font Awesome 5 Free:style=Solid:size=12:antialias=true"
-font-3 = "Font Awesome 5 Brands:style=Regular:size=12:antialias=true"
-
-#font-0 = "Sauce Code Pro Nerd Font:style=Bold:size=10:antialias=true"
-
-#font-0 = fixed:pixelsize=10;1
-#font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-#font-2 = siji:pixelsize=10;1
+font-1 = "Font Awesome 5 Free:style=Regular:size=11:antialias=true"
+font-2 = "Font Awesome 5 Free:style=Solid:size=11:antialias=true"
+font-3 = "Font Awesome 5 Brands:style=Regular:size=11:antialias=true"
 
 modules-left = bspwm
 modules-center = 
 modules-right = filesystem xbacklight pulseaudio memory cpu wlan battery temperature date powermenu
 
-tray-position = right
-tray-padding = 2
+tray-position = center
+tray-padding = 0
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
