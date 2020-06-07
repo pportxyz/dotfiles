@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -lhA'
 alias cat='bat'
 alias e='vim'
 alias se='sudoedit'
