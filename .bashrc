@@ -10,7 +10,7 @@ alias ll='ls -lhA'
 alias cat='bat'
 alias e='vim'
 alias se='sudoedit'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 #alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 
 PS1='[\u@\h \W]\$ '
