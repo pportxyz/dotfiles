@@ -48,10 +48,8 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = "Source Code Pro:style=Bold:size=10:antialias=true"
-font-1 = "Font Awesome 5 Free:style=Regular:size=11:antialias=true"
-font-2 = "Font Awesome 5 Free:style=Solid:size=11:antialias=true"
-font-3 = "Font Awesome 5 Brands:style=Regular:size=11:antialias=true"
+font-0 = Source Code Pro:style=Bold:size=10:antialias=true
+font-1 = Material Design Icons:style=Regular:size=14:antialias=true
 
 modules-left = bspwm
 modules-center = 
@@ -154,7 +152,7 @@ interval = 3
 
 format-connected = <label-connected>
 format-connected-underline = ${colors.primary}
-label-connected =  %essid%
+label-connected = 󰤨 %essid%
 label-connected-foreground = ${colors.foreground-alt}
 
 format-disconnected = <label-disconnected>
@@ -172,7 +170,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M:%S
 time-alt = ${self.time}
 
-format-prefix = 
+format-prefix = 󰥔
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 format-font = 3
@@ -245,7 +243,7 @@ animation-discharging-framerate = 750
 type = internal/temperature
 interval = 0.5
 ;thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
 base-temperature = 30
 warn-temperature = 100
 

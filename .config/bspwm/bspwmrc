@@ -18,7 +18,7 @@ getcolors () {
 xrdb ~/.Xresources
 getcolors
 
-bspc monitor -d web II III IV V VI VII VIII IX X
+bspc monitor -d web term III IV V VI VII VIII IX X
 
 bspc config border_width		4
 bspc config window_gap          	8
