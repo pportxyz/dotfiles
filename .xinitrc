@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -f "$HOME/.Xresources" ]; then
-    xrdb -merge "$userresources"
+    xrdb -merge "$HOME/.Xresources"
 fi
 xsetroot -cursor_name left_ptr &
 xbindkeys --poll-rc &
