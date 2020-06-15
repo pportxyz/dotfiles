@@ -36,8 +36,9 @@ bspc rule -r *:*
 bspc rule -a zathura state=tiled follow=on
 
 # Autostart
-killall -9 sxhkd xsettingsd dunst
+killall -9 sxhkd xsettingsd dunst picom
 $HOME/.config/polybar/launch.sh
+picom &
 sxhkd &
 feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-0.jpg' &
 dunst \
