@@ -1,7 +1,10 @@
 #! /bin/sh
 
+##############
+## Coloring ##
+##############
 
-## Coloring
+xrdb ~/.Xresources
 getcolors () {
 	FOREGROUND=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
 	BACKGROUND=$(xrdb -query | grep 'background:'| awk '{print $NF}')
@@ -14,33 +17,72 @@ getcolors () {
 	CYAN=$(xrdb -query | grep 'color6:'| awk '{print $NF}')
 	WHITE=$(xrdb -query | grep 'color7:'| awk '{print $NF}')
 }
-
-xrdb ~/.Xresources
 getcolors
 
+#################
+## BSPWM Setup ##
+#################
+
+##
+## Monitors
+##
 bspc monitor -d web term III IV V VI VII VIII IX X
 
-bspc config border_width		4
-bspc config window_gap          	8
+##
+## Configs
+##
+# Color of the border of an unfocused window.
+bspc config normal_border_color		"#000000"
+# Color of the border of a focused window of an unfocused monitor.
+bspc config active_border_color		"#000000"
+# Color of the border of a focused window of an focused monitor.
+bspc config focused_border_color	"#000000"
+# Color of the node --presel-{dir,ratio} message feedback area.
+bspc config presel_feedback_color	"#000000"
+# Default split ratio
 bspc config split_ratio			0.50
+# Remove borders of tiled windows for the monocle desktop layout.
 bspc config borderless_monocle		true
+# Remove gaps of tiled windows for the monocle desktop layout.
 bspc config gapless_monocle		true
+# Set the desktop layout to monocle if there's only one tiled window in the tree.
+bspc config single_monocle		false
+# Focus the window under the pointer.
 bspc config focus_follows_pointer	true
+# When focusig a window, put the pointer at its center.
+bspc config pointer_follows_focus	false
+# Padding space added at the sides of the monitor or desktop.
 bspc config top_padding 0
 bspc config bottom_padding 15
 bspc config left_padding 15
 bspc config right_padding 15
+# Size of the gap that separates windows.
+bspc config window_gap          	8
+# Window border width.
+bspc config border_width		4
 
+##
+## Rules
+##
 # Remove all rules
 bspc rule -r *:*
+# Pdf viewer
 bspc rule -a zathura state=tiled follow=on
 
-# Autostart
+
+#######################
+## Non-BSPWM related ##
+#######################
+
+##
+## Autostart
+##
+# Kill all running programs before start
 killall -9 sxhkd xsettingsd dunst picom
 $HOME/.config/polybar/launch.sh
 picom &
 sxhkd &
-feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-0.jpg' &
+feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-1.jpg' &
 dunst \
 	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
 	-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
