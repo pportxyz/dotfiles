@@ -1,9 +1,8 @@
 !#@# URxvt settings
-#define FONT0 Source Code Pro
-#define FONT1 Font Awesome 5 Free
+#define FONT0 SauceCodePro Nerd Font
 #define FONT_SIZE 10
 #define ICON_SIZE 10
-URxvt.font: xft:FONT0:style=Regular:size=FONT_SIZE,xft:FONT1:style=Regular:size=ICON_SIZE
+URxvt.font: xft:FONT0:style=Regular:size=FONT_SIZE
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.internalBorder: 24
@@ -52,16 +51,16 @@ Xft.hinting: 0
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
 
 !!
 !! X Window System Color Scheme (Regular / Bright) colors
 !!
-
+! Special
+*.foreground:   nord4
+*.background:   #121212
+*.cursorColor:  nord4
+*.fading: 35
+*.fadeColor: nord3
 ! Black + DarkGrey
 *.color0: nord0
 *.color8: nord3
