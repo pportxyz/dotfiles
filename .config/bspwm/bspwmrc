@@ -4,7 +4,7 @@
 ## Coloring ##
 ##############
 
-xrdb ~/.Xresources
+[ -f "$HOME/.Xresources" ] && xrdb "$HOME/.Xresources"
 getcolors () {
 	FOREGROUND=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
 	BACKGROUND=$(xrdb -query | grep 'background:'| awk '{print $NF}')
@@ -87,4 +87,19 @@ dunst \
 	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
 	-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
 	-cb "$BACKGROUND" -cf "$FOREGROUND" -cfr "$RED" &
+
+##
+## Xorg settings
+##
+# Set default cursor
+xsetroot -cursor_name left_ptr &
+# Update xbindkets keybindings
+xbindkeys --poll-rc &
+# Set startup backlight level
+xbacklight -set 20 &
+# Set default keyboard layout
+setxkbmap es &
+# Set touchpad properties
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1 &
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1	&
 
