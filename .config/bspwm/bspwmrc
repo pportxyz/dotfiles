@@ -67,7 +67,7 @@ bspc config border_width		4
 # Remove all rules
 bspc rule -r *:*
 # Pdf viewer
-bspc rule -a zathura state=tiled follow=on
+bspc rule -a Zathura state=tiled follow=on
 
 
 #######################
