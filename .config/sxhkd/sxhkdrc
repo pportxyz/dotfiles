@@ -4,14 +4,14 @@
 
 # terminal emulator
 super + Return
-	urxvt
+    alacritty
 
 # file manager
 super + e
-	urxvt -e ranger
+    alacritty -e ranger
 
-# file manager
-super + f
+# Web browser
+super + z
 	firefox
 
 # program launcher
