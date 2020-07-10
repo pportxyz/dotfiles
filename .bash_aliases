@@ -14,3 +14,4 @@ alias dotc='dot commit'
 alias dotf='dot diff'
 alias paclist='pacman -Qqe'     # -t: not dependencies / -m: aur packages
 alias pacorphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias wolaniakea="wol -f $HOME/.laniakea_mac_address"
