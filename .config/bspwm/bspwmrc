@@ -78,10 +78,11 @@ bspc rule -a Zathura state=tiled follow=on
 ## Autostart
 ##
 # Kill all running programs before start
-killall -9 sxhkd xsettingsd dunst picom
+killall -9 sxhkd xsettingsd dunst picom nextcloud
 $HOME/.config/polybar/launch.sh
 picom &
 sxhkd &
+nextcloud &
 feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-1.jpg' &
 dunst \
 	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
