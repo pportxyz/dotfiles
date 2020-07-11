@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-    alacritty
+    kitty
 
 # file manager
 super + e
-    alacritty -e ranger
+    kitty -e ranger
 
 # Web browser
 super + z
