@@ -94,8 +94,6 @@ dunst \
 ##
 # Set default cursor
 xsetroot -cursor_name left_ptr &
-# Update xbindkets keybindings
-xbindkeys --poll-rc &
 # Set startup backlight level
 xbacklight -set 20 &
 # Set default keyboard layout
