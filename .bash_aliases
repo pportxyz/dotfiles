@@ -15,6 +15,7 @@ alias dotd='dot diff'
 alias dotp='dot push'
 alias paclist='pacman -Qqe'     # -t: not dependencies / -m: aur packages
 alias pacorphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias msc='ncmpcpp'
 
 alias laniakeaon="wol -f $HOME/.laniakea_mac_address"
 function laniakeaoff () {
