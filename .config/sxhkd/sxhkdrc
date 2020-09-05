@@ -57,7 +57,7 @@ XF86Search
     rofi -show drun
 
 # Screenshot
-Print
+super + Print
     mkdir -p ~/Pictures/Screenshots; \
     scrot '%F_%T_$w_$h.png' -e 'mv $f ~/Pictures/Screenshots'
 
