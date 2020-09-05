@@ -15,4 +15,13 @@ alias dotd='dot diff'
 alias dotp='dot push'
 alias paclist='pacman -Qqe'     # -t: not dependencies / -m: aur packages
 alias pacorphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias wolaniakea="wol -f $HOME/.laniakea_mac_address"
+
+alias laniakeaon="wol -f $HOME/.laniakea_mac_address"
+function laniakeaoff () {
+    if ping -c 1 laniakea.ink 2>&1 1>/dev/null; then
+        ssh laniakea -t sudo poweroff
+    else
+        echo "[error] Laniakea server is not running."
+    fi
+}
+
