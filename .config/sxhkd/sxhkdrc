@@ -10,8 +10,12 @@ super + Return
 super + e
     kitty -e ranger
 
-# Web browser
+# Web browser #1
 super + z
+	chromium
+
+# Web browser #2
+super + x
 	firefox
 
 # program launcher
