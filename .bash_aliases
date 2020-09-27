@@ -17,6 +17,7 @@ alias paclist='pacman -Qqe'     # -t: not dependencies / -m: aur packages
 alias pacorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias msc='ncmpcpp'
 alias feh='feh -d --scale-down'
+alias emptytrash='rm -rf .trash/*'
 
 alias laniakeaon="wol -f $HOME/.laniakea_mac_address"
 function laniakeaoff () {
