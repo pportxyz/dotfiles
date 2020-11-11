@@ -15,7 +15,7 @@ alias dotd='dot diff'
 alias dotp='dot push'
 alias paclist='pacman -Qqe'     # -t: not dependencies / -m: aur packages
 alias pacorphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias msc='ncmpcpp'
+alias msc='mpd && ncmpcpp'
 alias feh='feh -d --scale-down'
 alias emptytrash='rm -rf .trash/*'
 
