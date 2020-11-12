@@ -1,24 +1,3 @@
-!#@# URxvt settings
-#define FONT0 SauceCodePro Nerd Font
-#define FONT_SIZE 10
-#define ICON_SIZE 10
-URxvt.font: xft:FONT0:style=Regular:size=FONT_SIZE
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.internalBorder: 24
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: true
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.iso14755: false
-URxvt.depth: 32
-! Shift + [Up/Down] to scroll one line [higher/lower]
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
-! Ctrl + [Left/Right] to jump to [previous/next] word
-URxvt.keysym.Control-Left: \033[1;5D
-URxvt.keysym.Control-Right: \033[1;5C
-
 !#@# XFT settings
 Xft.dpi: 96
 Xft.antialias: 1
