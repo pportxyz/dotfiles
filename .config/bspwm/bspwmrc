@@ -26,7 +26,7 @@ getcolors
 ##
 ## Monitors
 ##
-bspc monitor -d web term III IV V VI VII VIII IX X
+bspc monitor -d 1 2 3 4 5
 
 ##
 ## Configs
@@ -74,31 +74,63 @@ bspc rule -a Zathura state=tiled follow=on
 ## Non-BSPWM related ##
 #######################
 
-##
-## Autostart
-##
-# Kill all running programs before start
-killall -9 sxhkd xsettingsd dunst picom nextcloud
-polybar xpsbar &
-picom &
+#
+# Autostart
+#
+## Set Wallpaper
+feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')" &
+
+## Kill all running programs before start
+pkill sxhkd polybar picom
+
+## Start programs
+### Hotkey daemon
 sxhkd &
-nextcloud &
-feh --no-fehbg --bg-scale '/home/pport/.config/wallpapers/wall-1.jpg' &
-dunst \
-	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
-	-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
-	-cb "$BACKGROUND" -cf "$FOREGROUND" -cfr "$RED" &
+
+### Start gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+dbus-update-activation-environment --systemd DISPLAY
+
+### Polybar
+polybar xpsbar &
+
+### Compositor
+picom &
+
+### Nextcloud client
+if ! pgrep nextcloud > /dev/null ;then 
+    nextcloud &
+fi
+
+#xsettingsd &
+
+#redshift &
+
+#dunst \
+#	-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
+#	-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
+#	-cb "$BACKGROUND" -cf "$FOREGROUND" -cfr "$RED" &
+
+#/usr/bin/libinput-gestures &
+#/usr/lib/notification-daemon-1.0/notification-daemon &
 
 ##
 ## Xorg settings
 ##
 # Set default cursor
 xsetroot -cursor_name left_ptr &
+
 # Set startup backlight level
-xbacklight -set 20 &
+xbacklight -set 40 &
+
+# Set PulseAudio default volume
+pactl set-sink-volume @DEFAULT_SINK@ 70% &
+
 # Set default keyboard layout
 setxkbmap es &
+
 # Set touchpad properties
 xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1 &
 xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1	&
-
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0 &
