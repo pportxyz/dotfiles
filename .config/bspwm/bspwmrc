@@ -79,7 +79,7 @@ bspc rule -a Zathura state=tiled follow=on
 ##
 # Kill all running programs before start
 killall -9 sxhkd xsettingsd dunst picom nextcloud
-$HOME/.config/polybar/launch.sh
+polybar xpsbar &
 picom &
 sxhkd &
 nextcloud &
