@@ -6,7 +6,30 @@ I'm still studying and there are many times I need Windows, because of programs 
 
 If you have fallen in this repo and you see an error, feel free to PM me or open an issue. Thanks!
 
-[TOC]
+# Table of Contents
+<!-- This are for github-markdown-toc generator -->
+<!--ts-->
+   * [To-Do](#to-do)
+   * [Programs](#programs)
+   * [Configs](#configs)
+      * [Only for XPS 15 7590 (<a href="https://wiki.archlinux.org/index.php/Dell_XPS_15_7590" rel="nofollow">ArchWiki</a>)](#only-for-xps-15-7590-archwiki)
+         * [Default sleep mode](#default-sleep-mode)
+      * [Autologin (<a href="https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console" rel="nofollow">ArchWiki</a>)](#autologin-archwiki)
+      * [Silent Boot (<a href="https://wiki.archlinux.org/index.php/Silent_boot" rel="nofollow">ArchWiki</a>)](#silent-boot-archwiki)
+         * [Remove kernel messages](#remove-kernel-messages)
+         * [Remove console cursor blinking](#remove-console-cursor-blinking)
+         * [Remove last login message](#remove-last-login-message)
+         * [Remove fsck messages](#remove-fsck-messages)
+         * [Remove getty message (autologin)](#remove-getty-message-autologin)
+      * [Locale configuration (<a href="https://wiki.archlinux.org/index.php/Locale" rel="nofollow">ArchWiki</a>)](#locale-configuration-archwiki)
+         * [Generating locale](#generating-locale)
+         * [Setting locale (system-wide)](#setting-locale-system-wide)
+         * [Setting locale (per-user)](#setting-locale-per-user)
+      * [Login Keyring (<a href="https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME" rel="nofollow">ArchWiki</a>)](#login-keyring-archwiki)
+
+<!-- Added by: pport, at: mié 02 dic 2020 23:17:05 WET -->
+
+<!--te-->
 
 # To-Do
 
