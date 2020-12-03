@@ -46,7 +46,7 @@ bspc config borderless_monocle		true
 # Remove gaps of tiled windows for the monocle desktop layout.
 bspc config gapless_monocle		true
 # Set the desktop layout to monocle if there's only one tiled window in the tree.
-bspc config single_monocle		false
+bspc config single_monocle		true
 # Focus the window under the pointer.
 bspc config focus_follows_pointer	true
 # When focusig a window, put the pointer at its center.
