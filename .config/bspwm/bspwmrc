@@ -114,23 +114,3 @@ fi
 
 #/usr/bin/libinput-gestures &
 #/usr/lib/notification-daemon-1.0/notification-daemon &
-
-##
-## Xorg settings
-##
-# Set default cursor
-xsetroot -cursor_name left_ptr &
-
-# Set startup backlight level
-xbacklight -set 40 &
-
-# Set PulseAudio default volume
-pactl set-sink-volume @DEFAULT_SINK@ 70% &
-
-# Set default keyboard layout
-setxkbmap es &
-
-# Set touchpad properties
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1 &
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1	&
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0 &

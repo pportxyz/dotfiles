@@ -1,7 +1,28 @@
 #!/bin/sh
 
+#
+# X configuration
+#
+
 # merge xresources
 [[ -f ~/.config/X11/xresources ]] && xrdb -merge -I$HOME ~/.config/X11/xresources
+
+# set default cursor
+xsetroot -cursor_name left_ptr
+
+# set startup backlight level
+xbacklight -set 40
+
+# set PulseAudio default volume
+pactl set-sink-volume @DEFAULT_SINK@ 70%
+
+# set default keyboard layout
+setxkbmap es
+
+# set touchpad properties
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0
 
 # execute window manager
 exec bspwm
