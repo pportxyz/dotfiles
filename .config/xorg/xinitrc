@@ -1,3 +1,7 @@
 #!/bin/sh
 
+# merge xresources
+[[ -f ~/.config/xorg/xresources ]] && xrdb -merge -I$HOME ~/.config/xorg/xresources
+
+# execute window manager
 exec bspwm
