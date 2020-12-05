@@ -3,7 +3,7 @@
 # 
 
 alias ls="exa --icons"
-alias ls="ls -all"
+alias la="ls --all"
 alias ll="ls --long"
 alias lla="ls --long --all"
 alias cat="bat"
