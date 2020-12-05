@@ -23,8 +23,8 @@ export PATH=$PATH:$HOME/.local/bin
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE=-
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
-export XAUTHORITY="$XDG_CONFIG_HOME/xorg/xauthority"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XAUTHORITY="$XDG_CONFIG_HOME/X11/xauthority"
 
 # source .bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
