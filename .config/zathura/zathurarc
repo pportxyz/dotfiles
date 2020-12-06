@@ -1,0 +1,5 @@
+set selection-clipboard clipboard
+set recolor true
+set page-padding 10
+set statusbar-v-padding 10
+set statusbar-h-padding 40
