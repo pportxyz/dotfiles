@@ -38,6 +38,8 @@ If you have fallen in this repo and you see an error, feel free to PM me or open
 - [ ] Picom config
 - [ ] Dunst config
 - [ ] Base16 management
+- [ ] Improve this README (check https://github.com/alfunx/.dotfiles)
+- [ ] Migrate to NeoVim
 
 # Programs
 
@@ -54,6 +56,8 @@ If you have fallen in this repo and you see an error, feel free to PM me or open
 | Font 1                | Fira Code Nerd Font   | |
 | Font 2 (only icons)   | MaterialDesignIcons | |
 | Screenshot            | scrot                 | |
+| Music Server | mpd | |
+| Music Client | ncmpcpp | |
 
 # Configs
 
