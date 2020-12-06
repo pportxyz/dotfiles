@@ -2,32 +2,21 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
-super + Return
-    kitty
-
-# file manager
-super + e
-    kitty -e ranger
-
-# Web browser #1
-super + z
-    chromium
-
-# Web browser #2
-super + x
-    firefox
-
-# program launcher
-super + space
+# Most used programs
+super + {Return,e,z,space}
+    {\
+    $TERMINAL,\
+    $TERMINAL -e $FMANAGER,\
+    $BROWSER,\
     rofi -show drun
+    }
 
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
 
 # change background
-super + shift + w
+super + alt + w
     feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')"
 
 #
@@ -35,30 +24,20 @@ super + shift + w
 #
 
 # mpd play, pause, prev and next
-XF86AudioPlay
-    mpc -q toggle
-XF86Audio{Prev,Next}
-    mpc -q {prev,next}
+XF86Audio{Prev,Play,Next}
+    mpc -q {prev,toggle,next}
 
-# Increase volume
-XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +2%
+# lower/raise volume
+XF86Audio{LowerVolume,RaiseVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {-2%,+2%}
 
-# Decrease volume
-XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -2%
-
-# Mute volume
+# mute volume
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Increase brightness
-XF86MonBrightnessUp
-    xbacklight -inc 5
-
-# Decrease backlight
-XF86MonBrightnessDown
-    xbacklight -dec 5
+# increase brightness
+XF86MonBrightness{Down,Up}
+    xbacklight {-dec 5,-inc 5}
 
 # Seach tool
 XF86Search
@@ -67,7 +46,8 @@ XF86Search
 # Screenshot
 super + Print
     mkdir -p ~/Pictures/Screenshots; \
-    scrot '%F_%T_$w_$h.png' -e 'mv $f ~/Pictures/Screenshots'
+    scrot '%F_%T_$w_$h.png' -e 'mv $f ~/Pictures/Screenshots'; \
+    notify-send "Screenshot captured"
 
 # Windows 10 VM
 F7
