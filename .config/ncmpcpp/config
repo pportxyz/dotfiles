@@ -1,0 +1,14 @@
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/.local/share/ncmpcpp/lyrics
+
+mpd_music_dir = ~/Music
+mpd_crossfade_time = 2
+
+execute_on_song_change = notify-send "Now Playing" "$(mpc current)"
+
+progressbar_look = "─╼ "
+
+user_interface = alternative
+
+follow_now_playing_lyrics = yes
+fetch_lyrics_for_current_song_in_background = yes
