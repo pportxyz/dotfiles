@@ -89,9 +89,8 @@ label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted = <label-muted>
-label-muted = 󰖁  0%
+label-muted = %{T2}󰖁%{T-}  0%
 label-muted-foreground = #666
-label-muted-font = ${font.material-icon}
 
 ; material design icons
 ; Only applies if <ramp-volume> is used
