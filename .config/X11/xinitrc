@@ -11,7 +11,7 @@
 xsetroot -cursor_name left_ptr
 
 # set startup backlight level
-xbacklight -set 40
+xbacklight -set 20
 
 # set PulseAudio default volume
 pactl set-sink-volume @DEFAULT_SINK@ 70%
