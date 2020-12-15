@@ -24,5 +24,34 @@ xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0
 
+
+#
+# Autostart
+#
+
+# Set Wallpaper
+feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')" &
+
+# Programs
+sxhkd &
+polybar xpsbar &
+picom --experimental-backends &
+nextcloud &
+redshift &
+dunst &
+#xsettingsd &
+#/usr/bin/libinput-gestures &
+#/usr/lib/notification-daemon-1.0/notification-daemon &
+
+# Start gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+dbus-update-activation-environment --systemd DISPLAY
+
+
+#
+# Start WM
+#
+
 # execute window manager
 exec bspwm
