@@ -5,24 +5,27 @@
 #
 
 # merge xresources
-[[ -f ~/.config/X11/xresources ]] && xrdb -merge -I$HOME ~/.config/X11/xresources
+XRESOURCES=$XDG_CONFIG_HOME/X11/xresources
+if [[ -f $XRESOURCES ]]; then
+    xrdb -merge $XRESOURCES
+fi
 
 # set default cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # set startup backlight level
-xbacklight -set 20
+xbacklight -set 20 &
 
 # set PulseAudio default volume
-pactl set-sink-volume @DEFAULT_SINK@ 70%
+pactl set-sink-volume @DEFAULT_SINK@ 70% &
 
 # set default keyboard layout
-setxkbmap es
+setxkbmap es &
 
 # set touchpad properties
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1 &
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1 &
+xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0 &
 
 
 #
