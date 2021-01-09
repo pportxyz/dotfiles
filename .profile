@@ -7,7 +7,7 @@
 # default programs
 export TERMINAL="kitty"
 export EDITOR="nvim"
-export BROWSER="chromium"
+export BROWSER="brave"
 export FMANAGER="ranger"
 export READER="zathura"
 
