@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+if [ $1 -eq 0 ]; then
+    sudo modprobe -r uvcvideo
+elif [ $1 -eq 1 ]; then
+    sudo modprobe uvcvideo
+fi
+
+exit 0
+
