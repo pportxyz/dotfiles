@@ -1,7 +1,4 @@
-[core]
-    editor = vim
-
-[url "https://gist.github.com/"]
+[url "https://github.com/"]
     insteadOf = gh:
 
 [url "https://gist.github.com/"]
