@@ -39,6 +39,3 @@
     # View repository files in HEAD branch
     files = ls-tree --full-tree -r --name-only HEAD
 
-[user]
-    email = delaportillap@gmail.com
-    name = pport
