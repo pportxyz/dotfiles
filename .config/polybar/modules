@@ -64,7 +64,7 @@ label = %percentage_used:3%%
 type = custom/script
 format-prefix = " "
 format-prefix-font = 2
-exec = ~/.config/polybar/scripts/updates.sh
+exec = $XDG_CONFIG_HOME/polybar/scripts/updates.sh
 interval = 30
 
 
@@ -101,6 +101,14 @@ ramp-volume-font = ${font.material-icon}
 
 
 
+[module/bluetooth]
+type = custom/script
+format-prefix = 
+format-prefix-font = ${font.material-icon}
+exec = $XDG_CONFIG_HOME/polybar/scripts/bluetooth.sh
+
+
+
 [module/wlan]
 type = internal/network
 interface = wlp59s0
@@ -121,6 +129,7 @@ ramp-signal-1 = 󰤟
 ramp-signal-2 = 󰤢
 ramp-signal-3 = 󰤥
 ramp-signal-4 = 󰤨
+ramp-signal-font = ${font.material-icon}
 
 
 

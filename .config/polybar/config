@@ -64,7 +64,7 @@ font-3 = "Fira Code Nerd Font Mono:style=Bold:size=16;4"
 
 modules-left =
 modules-center = bspwm
-modules-right = cpu memory updates xbacklight pulseaudio wlan battery date 
+modules-right = cpu memory updates xbacklight pulseaudio bluetooth wlan battery date 
 
 tray-position = left
 tray-padding = 2
