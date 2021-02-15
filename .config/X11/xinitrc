@@ -42,6 +42,7 @@ picom --experimental-backends &
 nextcloud &
 redshift &
 dunst &
+flameshot &
 #xsettingsd &
 #/usr/bin/libinput-gestures &
 #/usr/lib/notification-daemon-1.0/notification-daemon &
