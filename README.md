@@ -39,32 +39,37 @@ If you have fallen in this repo and you see an error, feel free to PM me or open
 - [ ] Dunst config
 - [ ] Base16 management
 - [ ] Improve this README (check https://github.com/alfunx/.dotfiles)
-- [ ] Migrate to NeoVim
+- [x] Migrate to NeoVim
+- [ ] See mons to manage monitors
+- [x] See flameshot scrot replacement
+- [x] Bluetooth module polybar
 
 # Programs
 
 | Use                   | Name                  | Description |
 | ----                  | ----                  | ---- |
-| Graphical Server      | xorg                  | FOSS X server protocol implementation |
+| Graphical server      | xorg                  | FOSS X server protocol implementation |
 | Backlight             | xbacklight            | |
 | Sound                 | pulseaudio            | |
 | WM                    | bspwm                 | binary-space partition window manager |
-| HotKey Daemon         | sxhkd                 | Simple X hotkey daemon |
-| Compositor            | picom                 |  |
-| Notifications         | dunst                 |  |
+| HotKey daemon         | sxhkd                 | simple X hotkey daemon |
+| Compositor            | picom                 | |
+| Notifications         | dunst                 | |
 | Bar                   | polybar               | |
 | Font 1                | Fira Code Nerd Font   | |
-| Font 2 (only icons)   | MaterialDesignIcons | |
-| Screenshot            | scrot                 | |
-| Music Server | mpd | |
-| Music Client | ncmpcpp | |
+| Font 2 (only icons)   | MaterialDesignIcons   | |
+| Text editor           | Neovim                | |
+| Screenshot tool       | FLameshot         | Fully featured screenshot tool |
+| Music server          | mpd                   | |
+| Music client          | ncmpcpp               | |
+| Browser               | brave       | Privacy-focused browser |
 
 # Configs
 
 ## Only for XPS 15 7590 ([ArchWiki](https://wiki.archlinux.org/index.php/Dell_XPS_15_7590))
 
 ### Default sleep mode
-Add ``mem_sleep_default=deep`` to kernel parameters and rebuild iniramfs image.
+Add ``mem_sleep_default=deep`` to kernel parameters and rebuild initramfs image.
 
 ## Autologin ([ArchWiki](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console))
 Execute this command and add the next to the file:
@@ -188,3 +193,78 @@ export SSH_AUTH_SOCK
 ```
 
 > WARNING: There is a bug in my config or the ArchWiki isn't correct, this solved it: https://bbs.archlinux.org/viewtopic.php?id=224652
+
+## Unmute microphone
+```
+pactl set-source-mute 1 toggle
+```
+
+## OpenVPN
+
+> Not working!
+
+Install OpenVPN NetworkManager extension:
+```
+$ yay -S network-manager-openvpn
+```
+Download `.ovpn` file and execute `nmcli`:
+```
+$ nmcli connection import type openvpn file proton-nl.ovpn
+```
+
+## Bluetooth headset
+
+Install several packages:
+
+```
+$ yay -S bluez bluez-utils pulseaudio-bluetooth
+```
+
+In the `bluetoothctl` cli, connect and trust your device:
+
+```
+$ bluetoothctl
+[bluetoothctl]# scan on
+[bluetoothctl]# devices
+[bluetoothctl]#connect MAC_ADDRESS
+[bluetoothctl]# trust MAC_ADDRESS
+```
+
+Include this line in `/etc/pulse/default.pa`:
+
+```
+load-module module-switch-on-connect
+```
+
+## ZSH
+
+Set default shell to `sh`:
+
+```
+$ chsh --shell /bin/sh
+```
+
+Modify `/etc/zsh/zshenv` and add this line:
+
+```
+export ZDOTDIR="$HOME/.config/shell/zsh"
+```
+
+#### Add fish-like autosuggestions
+
+Download the source files in the oh-my-zsh directory:
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+Add the plugin in the `.zshrc` file:
+
+```
+plugins=(
+	...
+	zsh-autosuggestions
+	...
+)
+```
+
