@@ -63,9 +63,11 @@ F7
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
+# quit/restart env
 super + alt + {q,r}
- bspc {quit,wm -r}
+ pkill polybar; \
+ bspc {quit,wm -r}; \
+ polybar xpsbar &;
 
 # close and kill
 super + {_,shift + }w
