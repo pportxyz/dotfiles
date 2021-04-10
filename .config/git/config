@@ -25,17 +25,19 @@
 
 [alias]
     # Show all configured aliases.
-    aliases = !git config --list | grep 'alias\\.' | sort
-
+    aliases = "!git config --list | grep 'alias\\.' | sort"
+    # General
+    st = "status -s -b"
+    c = "commit"
     # When you commit a bit early --> ammend.
-    ammend = log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+    ammend = "log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend"
 
     # Which files are receiving most "love".
-    love = !git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count,file"} {print $1 "," $2}'
+    love = "!git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count,file\"} {print $1 \",\" $2}'"
 
     # View a pretty log with branch tree.
-    plog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    plog = "log --graph --decorate --oneline"
 
     # View repository files in HEAD branch
-    files = ls-tree --full-tree -r --name-only HEAD
+    files = "ls-tree --full-tree -r --name-only HEAD"
 
