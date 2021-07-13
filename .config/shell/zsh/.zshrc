@@ -65,6 +65,7 @@ ZSH_THEME="zhann"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -83,6 +84,16 @@ fi
 # Aliases
 source $XDG_CONFIG_HOME/shell/aliases
 
+# NVM
+export NVM_DIR="$HOME/.local/share/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Vim mode
 bindkey -v
 export KEYTIMEOUT=1
+
+# Autocompletion
+autoload -Uz compinit; compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+# To customize prompt, run `p10k configure` or edit ~/.config/shell/zsh/.p10k.zsh.
+[[ ! -f ~/.config/shell/zsh/.p10k.zsh ]] || source ~/.config/shell/zsh/.p10k.zsh
