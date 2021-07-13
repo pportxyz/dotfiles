@@ -1,35 +1,52 @@
+# vim: filetype=bash:
 #
-# ~/.bash_aliases   #@# pport
-# 
+# aliases
+#
+#@# pport
+#
 
-alias ls="exa --icons"
-alias la="ls --all"
-alias ll="ls --long"
-alias lla="ls --long --all"
-alias cat="bat"
-alias vim="$EDITOR"
-alias svim="sudoedit"
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias dots="dot status"
-alias dota="dot add"
-alias dotc="dot commit"
-alias dotd="dot diff"
-alias dotp="dot push"
-alias paclist="pacman -Qqe"     # -t: not dependencies / -m: aur packages
-alias pacorphans="sudo pacman -Rns $(pacman -Qtdq)"
-alias msc="mpd && ncmpcpp"
-alias feh="feh -d --scale-down"
-alias emptytrash="rm -rf .trash/*"
-alias rscp="rsync -avhP"
-alias protonvpn="sudo openvpn --cd Documents/ProtonVPN --config proton-nl.ovpn"
-alias sshterm="export TERM=xterm-256color"
-
-alias laniakeaon="wol -f $HOME/.laniakea_mac_address"
-function laniakeaoff () {
-    if ping -c 1 laniakea.ink 2>&1 1>/dev/null; then
-        ssh laniakea -t sudo poweroff
-    else
-        echo "[error] Laniakea server is not running."
-    fi
+## General
+alias sudo='sudo ' # Enable aliases to be sudo’ed
+dot () {
+    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
 }
+
+## SSH term fix
+alias sshterm='export TERM=xterm-256color'
+
+## Pacman related
+alias paclist='pacman -Qqe' # -t: not dependencies / -m: aur packages
+alias pacorphans="sudo pacman -Rns $(pacman -Qtdq)"
+
+## Programs default parameters & replacements
+alias vim='nvim'
+alias cat='bat'
+alias df='pydf'
+alias top='bpytop'
+alias msc='mpd && ncmpcpp'
+alias feh='feh -d --scale-down'
+alias protonvpn='sudo openvpn --cd Documents/ProtonVPN --config proton-nl.ovpn'
+alias blt='bluetoothctl'
+alias bltc="echo 'connect CC:5C:A4:DA:E9:D3' | blt"
+alias bltd="echo 'disconnect' | blt"
+
+## File and dir management
+alias ls='exa --icons'
+alias la='ls --all'
+alias ll='ls --long -all'
+alias emptytrash='rm -rf .trash/*'
+alias rscp='rsync -avhP'
+
+## Directories
+alias logs='cd /var/log'
+alias usr='cd /usr/local'
+alias nubii='cd ~/Nextcloud/SF/NUBII'
+alias ulpgc='cd ~/Nextcloud/ULPGC'
+alias tft='cd ~/Nextcloud/ULPGC/6ºDG/2ºCUATRIMESTRE/TFT/TFT/tex'
+alias cloudformation='cd ~/Nextcloud/SF/NUBII/repos/cloudformation'
+
+## Nubii
+alias s3syncd-credentials='aws s3 sync --dryrun --delete /home/pport/Nextcloud/SF/NUBII/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
+alias s3sync-credentials='aws s3 sync --delete /home/pport/Nextcloud/SF/NUBII/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
+alias cfn-src="cat asg.json | jq -r '.Resources[].Type' | sort | uniq -c | sort -n"
 
