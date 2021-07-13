@@ -6,8 +6,8 @@
 
 # merge xresources
 XRESOURCES=$XDG_CONFIG_HOME/X11/xresources
-if [[ -f $XRESOURCES ]]; then
-    xrdb -merge $XRESOURCES
+if [ -f "$XRESOURCES" ]; then
+    xrdb -merge "$XRESOURCES"
 fi
 
 # set default cursor
@@ -33,7 +33,8 @@ xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing 
 #
 
 # Set Wallpaper
-feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')" &
+#feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')" &
+feh --no-fehbg --bg-fill .config/wallpapers/000000.jpg &
 
 # Programs
 sxhkd &
@@ -48,8 +49,8 @@ flameshot &
 #/usr/lib/notification-daemon-1.0/notification-daemon &
 
 # Start gnome-keyring-daemon
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)"
+export "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
 dbus-update-activation-environment --systemd DISPLAY
 
 
