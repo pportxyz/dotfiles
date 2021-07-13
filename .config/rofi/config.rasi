@@ -16,7 +16,6 @@ configuration {
 element {
   padding: 10;
   text-color: @fg-alt;
-  text-align: left;
 }
 
 element selected {
