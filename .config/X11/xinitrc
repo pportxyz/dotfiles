@@ -39,7 +39,7 @@ feh --no-fehbg --bg-fill .config/wallpapers/000000.jpg &
 # Programs
 sxhkd &
 polybar xpsbar &
-picom --experimental-backends &
+picom &
 nextcloud &
 redshift &
 dunst &
