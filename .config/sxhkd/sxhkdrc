@@ -46,14 +46,11 @@ XF86Search
 # Screenshot
 super + Print
  mkdir -p ~/Pictures/Screenshots; \
-#scrot '%F_%T_$w_$h.png' -e 'mv $f ~/Pictures/Screenshots'; \
- flameshot full -p "$HOME/Pictures/Screenshots"; \
- notify-send "Screenshot captured"
+ flameshot full
 
 super + shift + Print
  mkdir -p ~/Pictures/Screenshots; \
- flameshot gui -p "$HOME/Pictures/Screenshots"; \
- notify-send "Screenshot captured"
+ flameshot gui
 
 # Windows 10 VM
 F7
