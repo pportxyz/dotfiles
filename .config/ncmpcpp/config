@@ -4,7 +4,7 @@ lyrics_directory = ~/.local/share/ncmpcpp/lyrics
 mpd_music_dir = ~/Music
 mpd_crossfade_time = 2
 
-execute_on_song_change = dunstify -r 6969 "Now Playing" "$(mpc current)"
+execute_on_song_change = dunstify -r 6969 --icon=lxmusic "Now Playing" "$(mpc current)"
 
 progressbar_look = "─╼ "
 
