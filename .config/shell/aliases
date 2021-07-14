@@ -23,12 +23,18 @@ alias vim='nvim'
 alias cat='bat'
 alias df='pydf'
 alias top='bpytop'
-alias msc='mpd && ncmpcpp'
 alias feh='feh -d --scale-down'
 alias protonvpn='sudo openvpn --cd Documents/ProtonVPN --config proton-nl.ovpn'
 alias blt='bluetoothctl'
 alias bltc="echo 'connect CC:5C:A4:DA:E9:D3' | blt"
 alias bltd="echo 'disconnect' | blt"
+function msc() {
+    if pgrep -x 'mpd' > /dev/null; then
+        ncmpcpp
+    else
+        mpd && ncmpcpp
+    fi
+}
 
 ## File and dir management
 alias ls='exa --icons'
