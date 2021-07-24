@@ -1,0 +1,63 @@
+@import "colors.flavours.rasi"
+
+window {
+    background-color:   @normal-background;
+    text-color:         @normal-foreground;
+    border:             1;
+    border-radius:      8;
+    border-color:       @border-color;
+
+    font:               "monospace 9";
+    transparency:       "real";
+    position:           center;
+    anchor:             center;
+    fullscreen:         false;
+    width:              600;
+    height:             600;
+    x-offset:           0;
+    y-offset:           0;
+}
+
+listview {
+    padding:            5 0 0 0;
+
+    columns:            1;
+    dynamic:            true;
+    scrollbar:          false;
+    cycle:              false;
+    spacing:            10;
+    layout:             vertical;
+    reverse:            false;
+    fixed-columns:      false;
+}
+
+inputbar {
+    background-color:   @lightbg;
+    padding:            20;
+}
+
+prompt {
+    enabled:            false;
+}
+
+entry {
+    text-color:         @foreground;
+}
+
+element {
+    padding:            15;
+    text-color:         @normal-foreground;
+}
+
+element-text {
+    vertical-align:     0.5;
+}
+
+element-icon {
+    size:               32;
+}
+
+element.selected {
+    background-color:   @alternate-normal-background;
+}
+

@@ -1,11 +1,9 @@
 configuration {
   modi: "window,run,drun";
-  font: "monospace 10";
   show-icons: true;
   icon-theme: "Papirus-Dark";
   drun-display-format: "{icon} {name}";
-  hide-scrollbar: true;
 }
 
-@import "/home/pport/.config/rofi/theme/css.misterio77.rasi"
+@import "css.rasi"
 
