@@ -21,7 +21,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="$PATH:$HOME/.local/bin"
 
 # bw session
-export BW_SESSION="8YwVX2k5Yp0RebvyeREtRlQYR9xsOLmT7nIVzWYA4ZTXNcE6uXE7vgcpzikdbFo39jGPZ4266BJlP9toBDh6HQ=="
+export BW_SESSION="OcIfpxxkycB7c7DNg/VMac7PT8lLMGTxiheZ/CqYc2AJe4f8/8kw47U/l97vICwssik2zQFkJCfIzq03YqToRg=="
 
 # fzf default command
 export FZF_DEFAULT_COMMAND="fd --hidden"
