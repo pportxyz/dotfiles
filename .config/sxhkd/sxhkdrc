@@ -3,11 +3,12 @@
 #
 
 # Most used programs
-super + {Return,e,z,space}
+super + {Return,e,z,x,space}
  {\
  $TERMINAL,\
  $TERMINAL -e $FMANAGER,\
  $BROWSER,\
+ $BROWSER_ALT, \
  rofi -show drun
  }
 
