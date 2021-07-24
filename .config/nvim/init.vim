@@ -12,9 +12,6 @@ Plug 'psliwka/vim-smoothie'                             " Smooth scroll
 Plug 'junegunn/fzf'                                     " Fuzzy search
 Plug 'junegunn/fzf.vim'                                 " More fuzzyness
 Plug 'tpope/vim-surround'                               " Manage surrounding characters
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }    " Material colorscheme
-Plug 'sirver/ultisnips'                                 " Snippets for repetitive tasks
-Plug 'tpope/vim-obsession'                              " Sessions file (works great with tmux)
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Need to learn and refactor this plugin
@@ -44,10 +41,8 @@ noremap   <Right>  <NOP>
 " colorscheme & syntax
 syntax on
 syntax enable
+colorscheme colors.flavours
 set termguicolors
-let g:material_theme_style = 'darker'
-let g:material_terminal_italics = 1
-colorscheme material
 
 " general config
 set hidden                                              " allow to hide a file to open another buffer

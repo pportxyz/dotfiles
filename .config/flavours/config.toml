@@ -1,0 +1,56 @@
+shell = "bash -c '{}'"
+
+[[item]]
+file = "~/.config/nvim/colors/colors.flavours.vim"
+template = "vim"
+subtemplate = "default"
+rewrite = true
+hook = "nvr --serverlist | while read -r server; do nvr --nostart -cc \":colorscheme colors.flavours\" --servername \"$server\"; done"
+
+[[item]]
+file = "~/.config/qutebrowser/config.py"
+template = "qutebrowser"
+subtemplate = "default"
+rewrite = false
+hook = ""
+
+[[item]]
+file = "~/.config/X11/colors.flavours.Xresources"
+template = "xresources"
+subtemplate = "default"
+rewrite = true
+hook = "xrdb ~/.config/X11/xresources"
+
+[[item]]
+file = "~/.config/kitty/colors.flavours.conf"
+template = "kitty"
+subtemplate = "default-256"
+rewrite = true
+hook = "pkill -USR1 -x kitty"
+
+[[item]]
+file = "~/.config/rofi/theme/colors.flavours.rasi"
+template = "rofi"
+subtemplate = "colors"
+rewrite = true
+
+[[item]]
+file = "~/.config/polybar/colors.flavours"
+template = "polybar"
+subtemplate = "default"
+rewrite = true
+hook = "polybar-msg cmd restart"
+
+[[item]]
+file= "~/.config/zathura/zathurarc"
+template = "zathura"
+subtemplate = "default"
+rewrite = false
+
+[[item]]
+file= "~/.config/dunst/dunstrc"
+template = "dunst"
+subtemplate = "default"
+rewrite = false
+hook = "pkill dunst; dunst &"
+
