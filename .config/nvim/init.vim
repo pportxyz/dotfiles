@@ -4,7 +4,6 @@
 
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 
-"Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'                            " Cool and lightweight bar
 "Plug 'Yggdroot/indentLine'                              " Self-descriptive
 Plug 'tpope/vim-fugitive'                               " Git integration
@@ -19,9 +18,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Need to learn and refa
 "
 " Testing
 Plug 'dense-analysis/ale'
+"Plug 'airblade/vim-gitgutter'
 
 " Always load the last one
-Plug 'ryanoasis/vim-devicons'                           " Fancy icons with other plugin integration.
+Plug 'ryanoasis/vim-devicons'                           " Fancy icons with other plugin integration
 
 call plug#end()
 
@@ -99,10 +99,6 @@ command! -bang NubiiFiles call fzf#vim#files('~/Nextcloud/SF/NUBII', <bang>0)
 nnoremap <C-f> :Files<CR>
 nnoremap <C-n> :NubiiFiles<CR>
 nnoremap <C-b> :Buffers<CR>
-
-
-" === NERDTree config ===================================
-let g:NERDTreeGitStatusUseNerdFonts = 1
 
 
 " === Lightline config ===================================
