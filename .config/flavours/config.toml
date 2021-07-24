@@ -1,6 +1,13 @@
 shell = "bash -c '{}'"
 
 [[item]]
+file = "~/.config/kitty/colors.flavours.conf"
+template = "kitty"
+subtemplate = "default-256"
+rewrite = true
+hook = "pkill -USR1 -x kitty"
+
+[[item]]
 file = "~/.config/nvim/colors/colors.flavours.vim"
 template = "vim"
 subtemplate = "default"
@@ -15,31 +22,10 @@ rewrite = false
 hook = ""
 
 [[item]]
-file = "~/.config/X11/colors.flavours.Xresources"
-template = "xresources"
-subtemplate = "default"
-rewrite = true
-hook = "xrdb ~/.config/X11/xresources && source ~/.config/bspwm/bspwmrc"
-
-[[item]]
-file = "~/.config/kitty/colors.flavours.conf"
-template = "kitty"
-subtemplate = "default-256"
-rewrite = true
-hook = "pkill -USR1 -x kitty"
-
-[[item]]
-file = "~/.config/rofi/theme/colors.flavours.rasi"
+file = "~/.config/rofi/themes/colors.flavours.rasi"
 template = "rofi"
 subtemplate = "colors"
 rewrite = true
-
-[[item]]
-file = "~/.config/polybar/colors.flavours"
-template = "polybar"
-subtemplate = "default"
-rewrite = true
-hook = "polybar-msg cmd restart"
 
 [[item]]
 file= "~/.config/zathura/zathurarc"
@@ -53,4 +39,18 @@ template = "dunst"
 subtemplate = "default"
 rewrite = false
 hook = "pkill dunst; dunst &"
+
+[[item]]
+file = "~/.config/X11/colors.flavours.Xresources"
+template = "xresources"
+subtemplate = "default"
+rewrite = true
+hook = "xrdb ~/.config/X11/xresources && source ~/.config/bspwm/bspwmrc"
+
+[[item]]
+file = "~/.config/polybar/colors.flavours"
+template = "polybar"
+subtemplate = "default"
+rewrite = true
+hook = "polybar-msg cmd restart"
 
