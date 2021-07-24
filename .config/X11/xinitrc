@@ -5,9 +5,9 @@
 #
 
 # merge xresources
-XRESOURCES=$XDG_CONFIG_HOME/X11/xresources
-if [ -f "$XRESOURCES" ]; then
-    xrdb -merge "$XRESOURCES"
+xresources=$XDG_CONFIG_HOME/X11/xresources
+if [ -f "$xresources" ]; then
+    xrdb -merge "$xresources"
 fi
 
 # set default cursor
