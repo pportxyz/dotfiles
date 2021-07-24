@@ -19,7 +19,7 @@ file = "~/.config/X11/colors.flavours.Xresources"
 template = "xresources"
 subtemplate = "default"
 rewrite = true
-hook = "xrdb ~/.config/X11/xresources"
+hook = "xrdb ~/.config/X11/xresources && source ~/.config/bspwm/bspwmrc"
 
 [[item]]
 file = "~/.config/kitty/colors.flavours.conf"
