@@ -52,13 +52,13 @@ super + shift + Print
  mkdir -p ~/Pictures/Screenshots; \
  flameshot gui
 
-# Windows 10 VM
-F7
- VBoxManage startvm 'W10'
-
 # Bluetooth headset connect
-{shift,ctrl} + F7
+F7
  echo -e "{connect,disconnect} CC:5C:A4:DA:E9:D3\n" | bluetoothctl
+
+# Windows 10 VM
+{shift,ctrl} + F7
+ VBoxManage startvm 'W10'
 
 #
 # dunst shortcuts
