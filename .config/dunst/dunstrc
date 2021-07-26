@@ -1,7 +1,7 @@
 # vim: ft=cfg
 
 [global]
-geometry = "400x8-20+52"
+geometry = "400x400-20+20"
 separator_height = 1
 padding = 10
 horizontal_padding = 10
@@ -18,7 +18,7 @@ icon_position = left
 max_icon_size = 64
 icon_path = /usr/share/icons/Papirus/128x128/actions/:/usr/share/icons/Papirus/128x128/apps/:/usr/share/icons/Papirus/128x128/devices/:/usr/share/icons/Papirus/128x128/emblems/:/usr/share/icons/Papirus/128x128/emotes/:/usr/share/icons/Papirus/128x128/mimetypes/:/usr/share/icons/Papirus/128x128/places/:/usr/share/icons/Papirus/128x128/status/
 browser = $BROWSER
-corner_radius = 5
+corner_radius = 8
 
 [urgency_low]
 timeout = 4
