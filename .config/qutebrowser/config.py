@@ -1,7 +1,29 @@
 # Allow read the autoconfig file to load non-important config like webcam permissions and so on
 config.load_autoconfig(True)
 
-# All custom config is below the flavours section
+c.scrolling.smooth = False
+c.downloads.position = 'bottom'
+c.downloads.remove_finished = 5000
+c.content.autoplay = False
+c.completion.height = '30%'
+
+# User keybindings
+config.bind(',p', 'spawn --userscript qute-bitwarden --password-only')
+config.bind(',m', 'spawn mpv --force-window=immediate --fullscreen --ytdl-format="bestvideo[height=?1080][fps<=?60][vcodec!=?vp9]+bestaudio/best" {url}')
+config.bind('<Ctrl-r>', 'reload', mode='normal')
+config.bind('<Escape>', 'mode-leave', mode='passthrough')
+
+# Tabs config. There are aditional config below flavours to customize tab colors
+c.tabs.favicons.scale = 1.5
+c.tabs.padding = {'bottom': 10, 'left': 10, 'right': 10, 'top': 10}
+c.tabs.position = 'left'
+c.tabs.show = 'multiple'
+c.tabs.title.format = None
+c.tabs.width = 45
+c.tabs.indicator.width = 0
+c.tabs.tooltips = True
+
+
 
 # start flavours
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
@@ -306,17 +328,7 @@ c.colors.tabs.selected.even.bg = base02
 # c.colors.webpage.bg = base00
 # end flavours
 
-c.scrolling.smooth = False
-c.tabs.favicons.scale = 1.5
-c.tabs.padding = {'bottom': 10, 'left': 10, 'right': 10, 'top': 10}
-c.tabs.position = 'left'
-c.tabs.show = 'multiple'
-c.tabs.title.format = None
-c.tabs.width = 45
-c.tabs.indicator.width = 0
-c.tabs.tooltips = True
+# Theme fixes
 c.colors.tabs.odd.bg = base03
 c.colors.tabs.even.bg = base03
-config.bind(',p', 'spawn --userscript qute-bitwarden --password-only')
-c.downloads.position = 'bottom'
-c.downloads.remove_finished = 5000
+
