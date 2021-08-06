@@ -59,7 +59,7 @@ F7
 
 # Windows 10 VM
 {shift,ctrl} + F7
- VBoxManage startvm 'W10'
+ VBoxManage startvm 'W11'
 
 #
 # dunst shortcuts
