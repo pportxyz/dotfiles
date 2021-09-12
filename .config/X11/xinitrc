@@ -34,7 +34,7 @@ xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Disable While Typing 
 
 # Set Wallpaper
 #feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')" &
-feh --no-fehbg --bg-fill .config/wallpapers/000000.jpg &
+feh --no-fehbg --bg-fill .config/wallpapers/wall-2.jpg &
 
 # Programs
 sxhkd &
