@@ -36,6 +36,10 @@ XF86Audio{LowerVolume,RaiseVolume}
 XF86AudioMute
  pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# mute microphone
+shift + XF86AudioMute
+ pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 # increase brightness
 XF86MonBrightness{Down,Up}
  xbacklight {-dec 5,-inc 5}
