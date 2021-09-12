@@ -46,13 +46,13 @@ alias rscp='rsync -avhP'
 ## Directories
 alias logs='cd /var/log'
 alias usr='cd /usr/local'
-alias nubii='cd ~/Nextcloud/SF/NUBII'
+alias nubii='cd ~/Nextcloud/singular-factory/nubii'
 alias ulpgc='cd ~/Nextcloud/ULPGC'
-alias tft='cd ~/Nextcloud/ULPGC/6ºDG/2ºCUATRIMESTRE/TFT/TFT/tex'
-alias cloudformation='cd ~/Nextcloud/SF/NUBII/repos/cloudformation'
+alias tft='cd ~/Nextcloud/ULPGC/6ºDG/2ºCUATRIMESTRE/TFT/tex'
+alias cloudformation='cd ~/Nextcloud/singular-factory/nubii/repos/cloudformation'
 
 ## Nubii
-alias s3syncd-credentials='aws s3 sync --dryrun --delete /home/pport/Nextcloud/SF/NUBII/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
-alias s3sync-credentials='aws s3 sync --delete /home/pport/Nextcloud/SF/NUBII/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
+alias s3syncd-credentials='aws s3 sync --dryrun --delete /home/pport/Nextcloud/singular-factory/nubii/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
+alias s3sync-credentials='aws s3 sync --delete /home/pport/Nextcloud/singular-factory/nubii/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
 alias cfn-src="cat asg.json | jq -r '.Resources[].Type' | sort | uniq -c | sort -n"
 
