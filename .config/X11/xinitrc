@@ -44,6 +44,7 @@ nextcloud &
 redshift &
 dunst &
 flameshot &
+protonmail-bridge --noninteractive &
 #xsettingsd &
 #/usr/bin/libinput-gestures &
 #/usr/lib/notification-daemon-1.0/notification-daemon &
