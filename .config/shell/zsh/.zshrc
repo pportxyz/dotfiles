@@ -31,8 +31,8 @@ fi
 source $XDG_CONFIG_HOME/shell/aliases
 
 # NVM
-#export NVM_DIR="$HOME/.local/share/nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.local/share/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Vim mode
 bindkey -v
