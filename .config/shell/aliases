@@ -56,3 +56,8 @@ alias s3syncd-credentials='aws s3 sync --dryrun --delete /home/pport/Nextcloud/s
 alias s3sync-credentials='aws s3 sync --delete /home/pport/Nextcloud/singular-factory/nubii/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
 alias cfn-src="cat asg.json | jq -r '.Resources[].Type' | sort | uniq -c | sort -n"
 
+## AWS
+aws-pport-ssh () {
+    ip=`curl -s http://whatismyip.akamai.com/`
+    aws --no-cli-pager --profile pport ec2 modify-security-group-rules --group-id 'sg-00b4ead233672efcc' --security-group-rules "SecurityGroupRuleId=sgr-027b4af4916bfa959,SecurityGroupRule={IpProtocol=tcp,FromPort=22,ToPort=22,CidrIpv4=$ip/32,CidrIpv6=,PrefixListId=,ReferencedGroupId=,Description=SSH Access Rule}"
+}
