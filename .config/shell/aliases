@@ -22,12 +22,13 @@ alias pacorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias vim='nvim'
 alias cat='bat'
 alias df='pydf'
-alias top='bpytop'
+alias top='btop'
 alias feh='feh -d --scale-down'
 alias protonvpn='sudo openvpn --cd "$HOME/Documents/ProtonVPN" --config "es.protonvpn.com.udp.ovpn"'
 alias blt='bluetoothctl'
 alias bltc="echo 'connect CC:5C:A4:DA:E9:D3' | blt"
 alias bltd="echo 'disconnect' | blt"
+alias tf="terraform"
 function msc() {
     if pgrep -x 'mpd' > /dev/null; then
         ncmpcpp
@@ -46,10 +47,9 @@ alias rscp='rsync -avhP'
 ## Directories
 alias logs='cd /var/log'
 alias usr='cd /usr/local'
-alias nubii='cd ~/Nextcloud/singular-factory/nubii'
+alias nubii='cd ~/Nextcloud/singular-factory/projects/nubii'
 alias ulpgc='cd ~/Nextcloud/ULPGC'
 alias tft='cd ~/Nextcloud/ULPGC/6ºDG/2ºCUATRIMESTRE/TFT/tex'
-alias cloudformation='cd ~/Nextcloud/singular-factory/nubii/repos/cloudformation'
 
 ## Nubii
 alias s3syncd-credentials='aws s3 sync --dryrun --delete /home/pport/Nextcloud/singular-factory/nubii/keys/nubii-s3-bucket-credentials/ s3://nubii-s3-bucket-credentials/'
@@ -60,4 +60,10 @@ alias cfn-src="cat asg.json | jq -r '.Resources[].Type' | sort | uniq -c | sort 
 aws-pport-ssh () {
     ip=`curl -s http://whatismyip.akamai.com/`
     aws --no-cli-pager --profile pport ec2 modify-security-group-rules --group-id 'sg-00b4ead233672efcc' --security-group-rules "SecurityGroupRuleId=sgr-027b4af4916bfa959,SecurityGroupRule={IpProtocol=tcp,FromPort=22,ToPort=22,CidrIpv4=$ip/32,CidrIpv6=,PrefixListId=,ReferencedGroupId=,Description=SSH Access Rule}"
+}
+
+## Utilities
+urlencode () {
+    echo "$1" | python3 -c \
+        "import sys; from urllib.parse import quote_plus; print(quote_plus(sys.stdin.read()));"
 }
