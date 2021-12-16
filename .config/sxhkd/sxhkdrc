@@ -2,13 +2,13 @@
 # wm independent hotkeys
 #
 
-# Most used programs
+# most used programs
 super + {Return,e,z,x,space}
  {\
  $TERMINAL,\
  $TERMINAL -e $FMANAGER,\
  $BROWSER,\
- $BROWSER_ALT, \
+ $BROWSER_PRIVATE, \
  rofi -show drun
  }
 
@@ -18,7 +18,8 @@ super + Escape
 
 # change background
 super + alt + w
- feh --no-fehbg --bg-fill "$(shuf -zen1 .config/wallpapers/* | tr '\0' '\n')"
+ feh --no-fehbg --bg-fill "$(find $HOME/.local/share/wallpapers/ -iname '*.jpg' -print0 | shuf -z -n1 | tr '\0' '\n')"
+
 
 #
 # topbar shortcuts
@@ -51,19 +52,20 @@ XF86Search
 # Screenshot
 super + Print
  mkdir -p ~/Pictures/Screenshots; \
- flameshot full
+ flameshot full --path ~/Pictures/Screenshots/
 
 super + shift + Print
  mkdir -p ~/Pictures/Screenshots; \
- flameshot gui
+ flameshot gui --path ~/Pictures/Screenshots/
 
 # Bluetooth headset connect
 F7
  echo -e "{connect,disconnect} CC:5C:A4:DA:E9:D3\n" | bluetoothctl
 
 # Windows 10 VM
-{shift,ctrl} + F7
+shift + F7
  VBoxManage startvm 'W11'
+
 
 #
 # dunst shortcuts
@@ -71,21 +73,23 @@ F7
 
 # close notification
 ctrl + space
-    dunstctl close
+ dunstctl close
 
 # close all notifications
 ctrl + shift + space
-    dunstctl close-all
+ dunstctl close-all
+
 
 #
 # bspwm hotkeys
 #
 
-# quit/restart env
-super + alt + {q,r}
- pkill polybar; \
- bspc {quit,wm -r}; \
- polybar xpsbar &;
+# because of "exec bspwm" in xinitrc, when bspwm is killed it reloads xorg
+# restart/reload desktop
+super + r
+ source ~/.config/bspwm/bspwmrc
+super + shift + r
+ bspc quit
 
 # close and kill
 super + {_,shift + }q
@@ -103,17 +107,32 @@ super + y
 super + g
  bspc node -s biggest
 
+
 #
-# state/flags
+# node state
 #
 
-# set the window state
-super + {t,shift + t,s,f}
- bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
- bspc node -g {marked,locked,sticky,private}
+#
+# toggle tiled/floating
+#
+super + d
+ if [ -n "$(bspc query -N -n focused.floating)" ]; then \
+     bspc node focused -t tiled; \
+ else \
+     bspc node focused -t floating; \
+ fi
+
+#
+# toggle tiled/fullscreen
+#
+super + f
+ if [ -n "$(bspc query -N -n focused.tiled)" ]; then \
+     bspc node focused -t fullscreen; \
+ else \
+     bspc node focused -t tiled; \
+ fi
+
 
 #
 # focus/swap
@@ -146,8 +165,10 @@ super + {o,i}
  bspc wm -h on
 
 # focus or send to the given desktop
+#bspc {desktop -f,node -d} '^{1-9,0}'
 super + {_,shift + }{1-9,0}
- bspc {desktop -f,node -d} '^{1-9,10}'
+ bspc {desktop -f,node -d} $(bspc query -D -d '{1-9,0}')
+
 
 #
 # preselect
@@ -169,6 +190,7 @@ super + ctrl + space
 super + ctrl + shift + space
  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
+
 #
 # move/resize
 #
@@ -184,15 +206,4 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
  bspc node -v {-20 0,0 20,0 -20,20 0}
-
-#
-# change mode
-#
-
-super + d
- if [ -z "$(bspc query -N -n focused.floating)" ]; then \
-     bspc node focused -t floating; \
- else \
-     bspc node focused -t tiled; \
- fi
 
