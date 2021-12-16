@@ -1,0 +1,23 @@
+; vim:ft=dosini
+
+[module/wlan]
+type = internal/network
+interface = wlp59s0
+interval = 5
+
+#format-connected = %{A1:$HOME/.config/rofi/scripts/network-manager/network-manager.sh:}<ramp-signal> <label-connected>%{A}
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+
+ramp-signal-0 = 󰤯 
+ramp-signal-1 = 󰤟 
+ramp-signal-2 = 󰤢 
+ramp-signal-3 = 󰤥 
+ramp-signal-4 = 󰤨 
+ramp-signal-font = ${fonts.material}
+
+format-disconnected = <label-disconnected>
+label-disconnected = 󰤮 
+label-disconnected-font = ${fonts.material}
+

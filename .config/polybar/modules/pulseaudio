@@ -1,0 +1,19 @@
+; vim:ft=dosini
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage:2%%
+label-volume-foreground = ${root.foreground}
+
+ramp-volume-0 = 󰕿 
+ramp-volume-1 = 󰖀 
+ramp-volume-2 = 󰕾 
+ramp-volume-font = ${fonts.material}
+
+format-muted = <label-muted>
+label-muted = 󰖁  0%
+label-muted-foreground = #666
+

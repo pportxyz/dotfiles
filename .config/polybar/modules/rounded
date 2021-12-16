@@ -1,0 +1,16 @@
+; vim:ft=dosini
+
+[module/prefix]
+type = custom/text
+content = " "
+
+content-foreground = ${theme.background-alt}
+content-font = ${fonts.semicircles}
+
+[module/suffix]
+type = custom/text
+content = " "
+
+content-foreground = ${theme.background-alt}
+content-font = ${fonts.semicircles}
+

@@ -1,0 +1,14 @@
+; vim:ft=dosini
+
+[module/microphone]
+type = custom/script
+interval = 1
+exec = $XDG_CONFIG_HOME/polybar/scripts/microphone.sh
+exec-if = pgrep -x pipewire
+
+click-left = pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+format = <label>
+label = %output%
+label-font = ${fonts.material}
+

@@ -1,82 +1,130 @@
 ; vim:ft=dosini
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;	@pport8 config
-;
-;
-;==========================================================
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-include-file = ~/.config/polybar/colors
-include-file = ~/.config/polybar/modules
 
+include-file = ~/.config/polybar/modules/backlight
+include-file = ~/.config/polybar/modules/battery
+include-file = ~/.config/polybar/modules/bluetooth
+include-file = ~/.config/polybar/modules/bspwm
+include-file = ~/.config/polybar/modules/cpu
+include-file = ~/.config/polybar/modules/date
+include-file = ~/.config/polybar/modules/memory
+include-file = ~/.config/polybar/modules/microphone
+include-file = ~/.config/polybar/modules/pulseaudio
+include-file = ~/.config/polybar/modules/updates
+include-file = ~/.config/polybar/modules/rounded
+include-file = ~/.config/polybar/modules/wlan
+
+include-file = ~/.config/polybar/colors.flavours
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-pseudo-transparency = true
+pseudo-transparency = false
 
+[theme]
+base-0 = ${colors.base00}
+base-1 = ${colors.base01}
+base-2 = ${colors.base02}
+base-3 = ${colors.base03}
+base-4 = ${colors.base04}
+base-5 = ${colors.base05}
+base-6 = ${colors.base06}
+white = ${colors.base07}
+red = ${colors.base08}
+orange = ${colors.base09}
+yellow = ${colors.base0A}
+green = ${colors.base0B}
+blue = ${colors.base0C}
+violet = ${colors.base0D}
+purple = ${colors.base0E}
+warn = ${colors.base0F}
 
-[bar/xpsbar]
+background = ${theme.base-0}
+background-alt = ${theme.base-3}
+foreground = ${theme.white}
+foreground-alt = ${theme.base-6}
+
+[bar/main]
+enable-ipc = true
 wm-restack = bspwm
-width = 100%
-height = 25
-offset-x = 0
-offset-y = 0
+width = 100%:-16
+height = 30
+offset-x = 8
+offset-y = 8
 radius = 0
 fixed-center = true
-bottom = false
+bottom = true
 
 padding-left = 0
 padding-right = 2
 
-background = ${color.background}
-foreground = ${color.foreground}
+background = ${theme.background}
+foreground = ${theme.foreground}
 
-line-size = 0
-line-color = ${color.primary}
+line-size = 4
+line-color = ${theme.background}
 
-border-size = 3
-border-color = ${color.background}
+border-size = 0
+border-color = ${theme.background}
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
 modules-left =
 modules-center = bspwm
 modules-right = cpu memory updates xbacklight pulseaudio microphone bluetooth wlan battery date
 
 tray-position = left
-tray-padding = 2
+tray-detached = true
+tray-padding = 0
+tray-offset-x = 0
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 font-0 = "monospace:style=Bold:size=8;2"
-font-1 = "Material Design Icons:style=Regular:size=12;2"
-font-2 = "BlexMono Nerd Font Mono:size=16;4"
-font-3 = "Material Design Icons:style=Regular:size=12;3"
-
+font-1 = "Material Design Icons:style=Regular:size=11;3"
+font-2 = "BlexMono Nerd Font Mono:size=14;4"
 # Material cheatsheet
 # https://pictogrammers.github.io/@mdi/font/6.1.95/
+
+[bar/main-eDP1]
+inherit = bar/main
+monitor = eDP1
+
+[bar/main-DP1]
+inherit = bar/main
+monitor = DP1
+
+[bar/main-DP3]
+inherit = bar/main
+monitor = DP3
+
+[bar/secondary]
+inherit = bar/main
+
+modules-left =
+modules-center = bspwm
+modules-right = date
+
+tray-position = none
+
+[bar/secondary-eDP1]
+inherit = bar/secondary
+monitor = eDP1
+
+[bar/secondary-DP1]
+inherit = bar/secondary
+monitor = DP1
+
+[bar/secondary-DP3]
+inherit = bar/secondary
+monitor = DP3
 
 [fonts]
 # fonts work with 1-based index, so font-0 = 1
 material = 2
 bspwm = 3
-microphone = 4
 

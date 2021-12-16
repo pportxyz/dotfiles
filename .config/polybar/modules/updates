@@ -1,0 +1,13 @@
+; vim:ft=dosini
+
+[module/updates]
+type = custom/script
+interval = 30
+exec = $XDG_CONFIG_HOME/polybar/scripts/updates.sh
+
+format = <label>
+label = %output%
+
+format-prefix = "󰏗 "
+format-prefix-font = ${fonts.material}
+

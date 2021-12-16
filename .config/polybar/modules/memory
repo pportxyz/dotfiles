@@ -1,0 +1,12 @@
+; vim:ft=dosini
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+format = <ramp-used> <label>
+label = %percentage_used:1%%
+
+ramp-used-0 = 󰍛 
+ramp-used-font = ${fonts.material}
+

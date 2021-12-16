@@ -1,0 +1,11 @@
+; vim:ft=dosini
+
+[module/bluetooth]
+type = custom/script
+interval = 2
+exec = $XDG_CONFIG_HOME/polybar/scripts/bluetooth.sh
+
+format = <label>
+label = %output%
+label-font = ${fonts.material}
+

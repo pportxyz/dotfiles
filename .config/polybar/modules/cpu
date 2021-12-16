@@ -1,0 +1,16 @@
+; vim:ft=dosini
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <ramp-load> <label>
+
+label = %percentage:1%%
+
+ramp-load-0 = 󰡳 
+ramp-load-1 = 󰡵 
+ramp-load-2 = 󰊚 
+ramp-load-3 = 󰡴 
+ramp-load-font = ${fonts.material}
+

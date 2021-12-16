@@ -1,0 +1,18 @@
+; vim:ft=dosini
+
+[module/xbacklight]
+type = internal/xbacklight
+card = intel_backlight
+
+format = <ramp> <label>
+label = %percentage:1%%
+
+ramp-0 = 󰃚 
+ramp-1 = 󰃛 
+ramp-2 = 󰃜 
+ramp-3 = 󰃝 
+ramp-4 = 󰃞 
+ramp-5 = 󰃟 
+ramp-6 = 󰃠 
+ramp-font = ${fonts.material}
+

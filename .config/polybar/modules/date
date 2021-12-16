@@ -1,0 +1,17 @@
+; vim:ft=dosini
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = 
+date-alt = " %a, %d %b"
+
+time = %T
+time-alt = ${self.time}
+
+format-prefix = 󰥔 
+format-prefix-font = ${fonts.material}
+
+label = %date% %time%
+
