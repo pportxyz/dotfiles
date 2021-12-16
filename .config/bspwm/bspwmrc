@@ -9,15 +9,6 @@ active=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
 focused=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
 presel=$(xrdb -query | grep 'color8:'| awk '{print $NF}')
 
-#
-# Monitors
-#
-
-bspc monitor -d 1 2 3 4 5
-
-#
-# Configs
-#
 
 # Color of the border of an unfocused window
 bspc config normal_border_color         "$normal"
@@ -58,3 +49,43 @@ bspc rule -r '*:*'
 # Pdf viewer
 bspc rule -a Zathura state=tiled follow=on
 
+
+###############
+# monitor setup
+###############
+# bspwm monitors -> https://www.reddit.com/r/bspwm/comments/j0ywxi/windows_are_not_staying_in_the_workspace_when/
+# udev rule -> https://bbs.archlinux.org/viewtopic.php?pid=1329375#p1329375
+# KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/pport/.config/X11/xauthority", RUN+="source /home/pport/.config/bspwm/bspwmrc"
+
+
+# kill all polybar instances
+killall -q polybar
+while pgrep -x polybar >/dev/null; do sleep 1; done
+monitor_count=$(xrandr --query | grep ' connected' | wc -l)
+if [[ $monitor_count -eq 3 ]]; then
+    xrandr \
+        --output eDP1 --mode 1920x1080 --rate 60 --pos 0x1080 \
+        --output DP1 --mode 1920x1080 --rate 60 --pos 0x0 \
+        --output DP3 --mode 1920x1080 --rate 60 --pos 1920x155
+    polybar main-DP1 &
+    polybar secondary-eDP1 &
+    polybar secondary-DP3 &
+    bspc monitor eDP1 -d 0
+    bspc monitor DP1 -d 1 2 3 4 5
+    bspc monitor DP3 -d 6
+elif [[ $monitor_count -eq 2 ]]; then
+    secondary_monitor=$(xrandr --query | grep ' connected' | tail -n1 | cut -d ' ' -f1)
+    xrandr \
+        --output eDP1 --mode 1920x1080 --rate 60 \
+        --output $secondary_monitor --mode 1920x1080 --rate 60 --above eDP1
+    polybar main-$secondary_monitor &
+    polybar secondary-eDP1 &
+    bspc monitor eDP1 -d 0
+    bspc monitor $secondary_monitor -d 1 2 3 4 5 6
+else
+    xrandr --output eDP1 --mode 1920x1080 --rate 60
+    polybar main-eDP1 &
+    bspc monitor eDP1 -d 1 2 3 4 5 6
+fi
+feh --no-fehbg --bg-scale ~/.local/share/wallpapers/planets/not-nasa-pluto.jpg
+    #feh --no-fehbg --bg-fill "$(find $HOME/.local/share/wallpapers/ -iname '*.jpg' -print0 | shuf -z -n1 | tr '\0' '\n')"
