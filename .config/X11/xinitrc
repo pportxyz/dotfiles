@@ -41,6 +41,7 @@ redshift &
 nextcloud &
 flameshot &
 protonmail-bridge --noninteractive &
+greenclip daemon &
 # gnome-keyring-daemon
 eval "$(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)"
 export "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
