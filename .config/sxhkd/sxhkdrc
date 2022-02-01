@@ -12,6 +12,10 @@ super + {Return,e,z,x,space}
  rofi -show drun
  }
 
+# greenclip clipboard rofi
+alt + space
+ rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
 # make sxhkd reload its configuration files:
 super + Escape
  pkill -USR1 -x sxhkd
