@@ -41,5 +41,5 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 
