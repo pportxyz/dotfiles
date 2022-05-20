@@ -53,7 +53,7 @@ alias cfn-src="cat asg.json | jq -r '.Resources[].Type' | sort | uniq -c | sort 
 ## AWS
 aws-pport-ssh () {
     ip=`curl -s http://whatismyip.akamai.com/`
-    aws --no-cli-pager --profile pport ec2 modify-security-group-rules --group-id 'sg-00b4ead233672efcc' --security-group-rules "SecurityGroupRuleId=sgr-027b4af4916bfa959,SecurityGroupRule={IpProtocol=tcp,FromPort=22,ToPort=22,CidrIpv4=$ip/32,CidrIpv6=,PrefixListId=,ReferencedGroupId=,Description=SSH Access Rule}"
+    aws --no-cli-pager --profile pport ec2 modify-security-group-rules --group-id 'sg-0317219f3a119b143' --security-group-rules "SecurityGroupRuleId=sgr-02f19cc78276f9688,SecurityGroupRule={IpProtocol=tcp,FromPort=22,ToPort=22,CidrIpv4=$ip/32,CidrIpv6=,PrefixListId=,ReferencedGroupId=,Description=,}"
 }
 
 ## Utilities
