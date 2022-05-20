@@ -29,13 +29,7 @@ alias blt='bluetoothctl'
 alias bltc="echo 'connect CC:5C:A4:DA:E9:D3' | blt"
 alias bltd="echo 'disconnect' | blt"
 alias tf="terraform"
-function msc() {
-    if pgrep -x 'mpd' > /dev/null; then
-        ncmpcpp
-    else
-        mpd && ncmpcpp
-    fi
-}
+alias msc="ncmpcpp"
 
 ## File and dir management
 alias ls='exa --icons'
