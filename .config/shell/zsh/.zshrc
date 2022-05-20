@@ -41,3 +41,9 @@ export KEYTIMEOUT=1
 # Autocompletion
 autoload -Uz compinit; compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
+source /opt/google-cloud-sdk/path.zsh.inc
+source /opt/google-cloud-sdk/completion.zsh.inc
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
