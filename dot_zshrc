@@ -1,0 +1,44 @@
+# zsh configuration
+export ZSH="$HOME/.config/oh-my-zsh"
+ZSH_THEME="juanghurtado"
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 13 # days between update checks
+
+
+# plugin configuration
+plugins=(
+    aliases
+    colored-man-pages
+    cp
+    git
+    ssh
+    tmux
+)
+
+## tmux
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_CONFIG="$HOME/.config/tmux/tmux.conf"
+
+source $ZSH/oh-my-zsh.sh
+
+
+# env variables
+export EDITOR='nvim'
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# aliases
+alias vim='nvim'
+
+
+# functions
+k-get-secret() {
+    kubectl get secret $1 -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+}
+
+# must run at the end
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
